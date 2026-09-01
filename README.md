@@ -3,8 +3,8 @@
 Public downloads and the download page for **GuildForge Studio**, a Windows app
 for building and running Discord servers.
 
-**[Download the latest release](https://github.com/psofos213/guildforge/releases/latest)**
-· **[Download page](https://psofos213.github.io/guildforge/)**
+**[Download the latest release](https://github.com/guildforgestudio/guildforgestudio.github.io/releases/latest)**
+· **[Download page](https://guildforgestudio.github.io/)**
 
 This repository holds only the installer and the page that links to it. The
 application source is not here.

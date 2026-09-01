@@ -629,6 +629,31 @@
     </div>
 
     <div class="notes reveal">
+      <h3>If your antivirus deletes the file</h3>
+      <p>
+        Some setups quarantine it the moment it lands. It is a false positive, and it happens
+        because the file is new, unsigned, and has no download history yet — not because anything
+        was found in it. To get it back:
+      </p>
+      <p style="margin-left: 2px;">
+        <strong>Windows Security</strong> → <strong>Virus &amp; threat protection</strong> →
+        <strong>Protection history</strong> → find the blocked item →
+        <strong>Actions</strong> → <strong>Allow on device</strong>, then download again.
+      </p>
+      <p>
+        You can check the file yourself before trusting any of that. Every download should have
+        this exact fingerprint:
+      </p>
+      <p><code style="word-break: break-all;">3B7D30A93F88159A0F95696AD41E392A8F1C411B1694A4D3D0FBB6CED93C3100</code></p>
+      <p>
+        <a href="https://www.virustotal.com/gui/file/3b7d30a93f88159a0f95696ad41e392a8f1c411b1694a4d3d0fbb6ced93c3100"
+           style="color: var(--cyan);">See it on VirusTotal</a> — scanned by around seventy engines.
+        If your copy's fingerprint does not match the one above, do not run it, and
+        <a href="mailto:guildforge2026@gmail.com" style="color: var(--cyan);">tell me</a>.
+      </p>
+    </div>
+
+    <div class="notes reveal">
       <h3>Windows is going to warn you. Here's why</h3>
       <p>
         The build isn't code-signed yet, so SmartScreen throws up a blue “Windows protected your PC”

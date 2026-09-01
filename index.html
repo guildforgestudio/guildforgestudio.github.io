@@ -384,6 +384,9 @@
 
   footer { padding: 42px 0 64px; border-top: 1px solid var(--line); }
   .foot-mark { display: inline-flex; align-items: center; gap: 9px; }
+  .foot-links { display: inline-flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  .foot-links a { color: var(--cyan); text-decoration: none; }
+  .foot-links a:hover { text-decoration: underline; }
   .foot-logo {
     width: 20px; height: 20px; border-radius: 6px; flex: none;
     background-image: var(--logo); background-size: cover; background-position: center;
@@ -635,6 +638,11 @@
         After that it's just the app: sign in with Discord, invite the bot to a server you manage,
         and start building. It talks to Discord and to the GuildForge service, and nothing else.
       </p>
+      <p>
+        Stuck, or something looks wrong? Email
+        <a href="mailto:guildforge2026@gmail.com" style="color: var(--cyan);">guildforge2026@gmail.com</a>
+        and say what you were doing when it happened.
+      </p>
     </div>
   </div>
 </section>
@@ -642,7 +650,11 @@
 <footer>
   <div class="wrap foot">
     <span class="foot-mark"><span class="foot-logo" aria-hidden="true"></span> GuildForge Studio · version 0.1.0</span>
-    <span>Not affiliated with Discord Inc.</span>
+    <span class="foot-links">
+      <a href="mailto:guildforge2026@gmail.com">guildforge2026@gmail.com</a>
+      <span aria-hidden="true">·</span>
+      Not affiliated with Discord Inc.
+    </span>
   </div>
 </footer>
 

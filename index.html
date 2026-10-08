@@ -266,6 +266,8 @@
     <symbol id="i-tags" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
     <symbol id="i-command" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z"/></symbol>
     <symbol id="i-backup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/><path d="M12 8v4l3 2"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4"/><path d="M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4"/><path d="M8 20h8"/><path d="M10 17h4v3h-4z"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4"/><circle cx="12" cy="3.5" r="1"/><circle cx="9" cy="14" r="1.2"/><circle cx="15" cy="14" r="1.2"/><path d="M2 13v3M22 13v3"/></symbol>
     <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l7 5V5L7 10H4a1 1 0 0 0-1 1z"/><path d="M18 9a4 4 0 0 1 0 6"/></symbol>
   </defs>
 </svg>
@@ -299,7 +301,7 @@
         <span class="btn-note" id="download-note">Free plan · no card</span>
       </div>
       <div class="chips">
-        <span class="chip">v<b>0.4.0</b></span>
+        <span class="chip">v<b>0.4.5</b></span>
         <span class="chip"><b>82</b> MB</span>
         <span class="chip">Windows <b>10 / 11</b></span>
         <span class="chip"><b>Free</b> to start</span>
@@ -395,6 +397,16 @@
         <span class="icon"><svg><use href="#i-megaphone"/></svg></span>
         <h3>Broadcasts</h3>
         <p>Post styled announcements now, or schedule them for later.</p>
+      </div>
+      <div class="cell wide reveal">
+        <span class="icon"><svg><use href="#i-trophy"/></svg></span>
+        <h3>Levels &amp; community</h3>
+        <p>XP and levels with reward roles, giveaways, birthday wishes, a starboard and live member counters. Spamming for XP earns nothing.</p>
+      </div>
+      <div class="cell wide reveal">
+        <span class="icon"><svg><use href="#i-bot"/></svg></span>
+        <h3>Your own bot</h3>
+        <p>Give GuildForge your server's own name, picture and bio. It changes only in your server. On Pro.</p>
       </div>
     </div>
   </div>
@@ -517,7 +529,7 @@
 
     <div class="cta-row reveal">
       <a class="btn" id="download-2" href="#install">Download for Windows</a>
-      <span class="btn-note">Version 0.4.0 · 82 MB</span>
+      <span class="btn-note">Version 0.4.5 · 82 MB</span>
     </div>
 
     <div class="notes reveal">
@@ -533,7 +545,7 @@
         <strong>Actions</strong> → <strong>Allow on device</strong>, then download again.
       </p>
       <p>You can check the file yourself before trusting any of that. Every download should have this exact fingerprint:</p>
-      <p><code style="word-break: break-all;">8429DC5D9DF24BA53DF9A8C58B0D85DC5971D1E57C2321E4320C909E2351D04A</code></p>
+      <p><code style="word-break: break-all;">C809B5E267720A28C23FA40768385AB0F77A55C08F812E12D24500DF523F6E95</code></p>
       <p>
         <a href="https://www.virustotal.com/gui/file/8f6e2f597b3d852c897175624763306ec0b785c6b6d9cad106ac7120aab468bf">See it on VirusTotal</a>
         — scanned by around seventy engines. If your copy's fingerprint does not match the one above, do not run it, and
@@ -563,7 +575,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.0</span>
+    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.5</span>
     <span>
       <a href="mailto:guildforge2026@gmail.com">guildforge2026@gmail.com</a>
       <span aria-hidden="true"> · </span>
@@ -580,7 +592,7 @@
    * button that goes nowhere costs more trust than an absent one.
    */
   var DOWNLOAD_URL =
-    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.0/GuildForge-Studio-Setup-0.4.0.exe";
+    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.5/GuildForge-Studio-Setup-0.4.5.exe";
 
   (function () {
     var buttons = [document.getElementById("download"), document.getElementById("download-2")];

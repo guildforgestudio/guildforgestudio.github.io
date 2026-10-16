@@ -88,6 +88,9 @@
   .btn.ghost:hover { border-color: var(--ember-line); color: var(--ember-hot); }
   .btn[aria-disabled="true"] { opacity: 0.6; pointer-events: none; }
   .btn-note { color: var(--text-3); font-size: 14px; }
+  .ref-note { display: none; margin-top: 18px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--ember-line); background: var(--ember-soft); color: var(--text); font-size: 15px; max-width: 520px; }
+  .ref-note.show { display: block; }
+  .ref-note b { font-family: ui-monospace, monospace; letter-spacing: 0.06em; }
 
   /* ------------------------------------------------------------ hero -- */
   .hero { position: relative; isolation: isolate; padding-block: 72px 88px; overflow: hidden; }
@@ -300,8 +303,9 @@
         </a>
         <span class="btn-note" id="download-note">Free plan · no card</span>
       </div>
+      <p class="ref-note" id="ref-note" role="status"></p>
       <div class="chips">
-        <span class="chip">v<b>0.4.5</b></span>
+        <span class="chip">v<b>0.4.6</b></span>
         <span class="chip"><b>82</b> MB</span>
         <span class="chip">Windows <b>10 / 11</b></span>
         <span class="chip"><b>Free</b> to start</span>
@@ -529,7 +533,7 @@
 
     <div class="cta-row reveal">
       <a class="btn" id="download-2" href="#install">Download for Windows</a>
-      <span class="btn-note">Version 0.4.5 · 82 MB</span>
+      <span class="btn-note">Version 0.4.6 · 82 MB</span>
     </div>
 
     <div class="notes reveal">
@@ -545,7 +549,7 @@
         <strong>Actions</strong> → <strong>Allow on device</strong>, then download again.
       </p>
       <p>You can check the file yourself before trusting any of that. Every download should have this exact fingerprint:</p>
-      <p><code style="word-break: break-all;">3A355A4A6EFF8841BA63D67744A20A057EEC697C5989783575A6AF098E531F96</code></p>
+      <p><code style="word-break: break-all;">98EF619216D8E04D99B04ECFD658ACF354A9B125E99884792E59142AC949CE4A</code></p>
       <p>
         <a href="https://www.virustotal.com/gui/file/8f6e2f597b3d852c897175624763306ec0b785c6b6d9cad106ac7120aab468bf">See it on VirusTotal</a>
         — scanned by around seventy engines. If your copy's fingerprint does not match the one above, do not run it, and
@@ -575,7 +579,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.5</span>
+    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.6</span>
     <span>
       <a href="mailto:guildforge2026@gmail.com">guildforge2026@gmail.com</a>
       <span aria-hidden="true"> · </span>
@@ -592,7 +596,7 @@
    * button that goes nowhere costs more trust than an absent one.
    */
   var DOWNLOAD_URL =
-    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.5/GuildForge-Studio-Setup-0.4.5.exe";
+    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.6/GuildForge-Studio-Setup-0.4.6.exe";
 
   (function () {
     var buttons = [document.getElementById("download"), document.getElementById("download-2")];
@@ -611,6 +615,39 @@
     });
 
     if (note && !DOWNLOAD_URL) note.textContent = "Set DOWNLOAD_URL in the page source";
+  })();
+
+  /*
+   * A friend's referral link: ?ref=CODE.
+   *
+   * A link cannot follow someone through a download and an installer, so the
+   * code travels on the clipboard instead: pressing Download copies it as
+   * GF-REF-CODE, and on its first launch the app finds it there and offers it.
+   * The code is also shown, so it can be typed in by hand if the copy fails.
+   */
+  (function () {
+    var match = /^[A-Za-z0-9]{3,16}$/.exec(new URLSearchParams(window.location.search).get("ref") || "");
+    if (!match) return;
+    var code = match[0].toUpperCase();
+    var note = document.getElementById("ref-note");
+    if (note) {
+      note.textContent = "";
+      note.appendChild(document.createTextNode("🎉 Your friend sent you GuildForge. Their code "));
+      var b = document.createElement("b");
+      b.textContent = code;
+      note.appendChild(b);
+      note.appendChild(document.createTextNode(" gives you a discount on Pro. Download, sign in, and the app offers it to you — or enter it yourself on the Plans page."));
+      note.className = "ref-note show";
+    }
+    [document.getElementById("download"), document.getElementById("download-2")].forEach(function (button) {
+      if (!button) return;
+      button.addEventListener("click", function () {
+        // Inside the click, which is what lets a page write to the clipboard. Never in the way of the download itself.
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText("GF-REF-" + code).catch(function () {});
+        } catch (e) {}
+      });
+    });
   })();
 
   /*

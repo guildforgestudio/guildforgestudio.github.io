@@ -15,9 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <title>GuildForge Studio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<!-- Fonts from this site, not Google's: no visitor's address goes anywhere before they have asked for anything. -->
+<link rel="stylesheet" href="fonts.css">
 
 <style>
   /* ---------------------------------------------------------------
@@ -50,7 +49,7 @@
 
     --display: "Barlow Condensed", "Arial Narrow", "Segoe UI", sans-serif;
     --body: "Barlow", "Segoe UI", system-ui, sans-serif;
-    --mono: "JetBrains Mono", Consolas, monospace;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
     --out: cubic-bezier(0.16, 1, 0.3, 1);
     --max: 1160px;
   }
@@ -242,6 +241,7 @@
   .foot-mark { display: inline-flex; align-items: center; gap: 10px; color: var(--text-2); }
   .foot-mark img { width: 22px; height: 22px; border-radius: 6px; }
   .foot a { color: var(--text-2); }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 
   /* --------------------------------------------------------- reveals -- */
   .anim .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--out), transform 0.7s var(--out); }
@@ -305,7 +305,7 @@
       </div>
       <p class="ref-note" id="ref-note" role="status"></p>
       <div class="chips">
-        <span class="chip">v<b>0.4.6</b></span>
+        <span class="chip">v<b>0.4.7</b></span>
         <span class="chip"><b>82</b> MB</span>
         <span class="chip">Windows <b>10 / 11</b></span>
         <span class="chip"><b>Free</b> to start</span>
@@ -533,7 +533,7 @@
 
     <div class="cta-row reveal">
       <a class="btn" id="download-2" href="#install">Download for Windows</a>
-      <span class="btn-note">Version 0.4.6 · 82 MB</span>
+      <span class="btn-note">Version 0.4.7 · 82 MB</span>
     </div>
 
     <div class="notes reveal">
@@ -549,7 +549,7 @@
         <strong>Actions</strong> → <strong>Allow on device</strong>, then download again.
       </p>
       <p>You can check the file yourself before trusting any of that. Every download should have this exact fingerprint:</p>
-      <p><code style="word-break: break-all;">98EF619216D8E04D99B04ECFD658ACF354A9B125E99884792E59142AC949CE4A</code></p>
+      <p><code style="word-break: break-all;">A338779CC012CEC7292E29439C7EBE5E11546C1D0A95568B5AA22C5618EA876F</code></p>
       <p>
         <a href="https://www.virustotal.com/gui/file/8f6e2f597b3d852c897175624763306ec0b785c6b6d9cad106ac7120aab468bf">See it on VirusTotal</a>
         — scanned by around seventy engines. If your copy's fingerprint does not match the one above, do not run it, and
@@ -579,11 +579,14 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.6</span>
-    <span>
+    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.4.7</span>
+    <span class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="legal.html">Legal notice</a>
       <a href="mailto:guildforge2026@gmail.com">guildforge2026@gmail.com</a>
-      <span aria-hidden="true"> · </span>
-      Not affiliated with Discord Inc.
+      <span>Not affiliated with Discord Inc.</span>
     </span>
   </div>
 </footer>
@@ -596,7 +599,7 @@
    * button that goes nowhere costs more trust than an absent one.
    */
   var DOWNLOAD_URL =
-    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.6/GuildForge-Studio-Setup-0.4.6.exe";
+    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.4.7/GuildForge-Studio-Setup-0.4.7.exe";
 
   (function () {
     var buttons = [document.getElementById("download"), document.getElementById("download-2")];

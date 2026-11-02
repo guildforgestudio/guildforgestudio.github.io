@@ -24,11 +24,12 @@
 
 <main class="wrap">
   <h1>Cookies</h1>
-  <p class="updated">Last updated: 20 October 2026</p>
+  <p class="updated">Last updated: 2 November 2026</p>
 
   <div class="box">
-    <p><strong>This website sets no cookies.</strong> No analytics, no advertising, no tracking pixels, no social
-      media plug-ins. That is why there is no cookie banner: there is nothing to agree to.</p>
+    <p><strong>Nothing here tracks you.</strong> No analytics, no advertising, no tracking pixels, no social
+      media plug-ins. This website sets no cookies at all. The web app sets two, only to keep you signed in. They
+      are strictly necessary, so they need no consent, and that is why there is no cookie banner.</p>
   </div>
 
   <h2>The website</h2>
@@ -36,11 +37,27 @@
     <li>Fonts are served from this site, not from Google or any other font service.</li>
     <li>The site is hosted by GitHub, which sees your IP address to deliver the page, as every web host does.</li>
     <li>
-      A friend's referral link (<code>?ref=CODE</code>) is read by the page itself. When you press Download, the
-      code is copied to your clipboard so the app can offer it on its first start. Nothing is stored in your
-      browser and nothing is sent to us.
+      A friend's referral link (<code>?ref=CODE</code>) is read by the page itself. When you press Open GuildForge,
+      the code goes along in the link. When you press Download, it is copied to your clipboard so the app can offer
+      it on its first start. This site stores nothing in your browser.
     </li>
   </ul>
+
+  <h2>The web app</h2>
+  <p>
+    GuildForge in your browser (<code>guildforge-q60l.onrender.com/app</code>) is run by our service, hosted on
+    Render. It sets two cookies, both strictly necessary and neither readable by scripts on the page:
+  </p>
+  <ul>
+    <li><code>gf_session</code> keeps you signed in. It lasts 7 days, or until you sign out.</li>
+    <li><code>gf_oauth_state</code> ties a sign-in to the browser that started it. It lasts at most 10 minutes
+      and is removed once you are signed in.</li>
+  </ul>
+  <p>
+    It also keeps a few things in your browser's local storage: which server you last opened, a friend's code until
+    you have used it, and whether you closed the invitation to our community server. Signing out removes the server
+    choice; clearing your browser's site data removes the rest.
+  </p>
 
   <h2>The desktop app</h2>
   <p>

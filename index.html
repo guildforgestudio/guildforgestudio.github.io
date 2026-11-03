@@ -660,6 +660,37 @@
   })();
 
   /*
+   * One count per page opened, and per press of Download: see cookies.html. No
+   * cookies and nothing stored here. Only the host someone came from is sent, and
+   * a browser asking not to be counted sends nothing at all.
+   */
+  (function () {
+    var COUNT_URL = "https://guildforge-q60l.onrender.com/api/visit";
+    function count(page) {
+      if (navigator.globalPrivacyControl || navigator.doNotTrack === "1") return;
+      var query = new URLSearchParams(window.location.search);
+      var from = "";
+      try {
+        from = document.referrer ? new URL(document.referrer).hostname : "";
+      } catch (e) {}
+      try {
+        fetch(COUNT_URL, {
+          method: "POST",
+          mode: "cors",
+          credentials: "omit",
+          keepalive: true,
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ page: page, from: query.get("from"), referrer: from, friend: query.has("ref") }),
+        }).catch(function () {});
+      } catch (e) {}
+    }
+    count("site");
+    [document.getElementById("download"), document.getElementById("download-2")].forEach(function (button) {
+      if (button) button.addEventListener("click", function () { count("download"); });
+    });
+  })();
+
+  /*
    * The film. It plays muted, as browsers require; one press turns the sound on
    * and starts it from the top, because the sound design is cut to the picture.
    */

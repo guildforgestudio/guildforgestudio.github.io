@@ -83,14 +83,16 @@
             server sees only the counts), reminders until they are delivered, temporary roles until they end,
             starboard posts, reviews, security events (kept 30 days) and structure backups (kept as long as the
             plan allows). With role restore on, the roles a member had when they left are kept until they come
-            back, are banned, or 90 days have passed.</td>
+            back, are banned, or 90 days have passed. For every server: daily totals with no names in them (how
+            many people joined and left, messages sent, tickets, security events, AI answers), kept 90 days.</td>
           <td>Running the features the server's admins chose (contract with the admin; for members, the server's
             and our legitimate interest in a working, safe server).</td>
         </tr>
         <tr>
           <td>Messages in a server</td>
           <td>The bot reads messages in channels it can see, only to run the features the server switched on:
-            filtering scams and spam, auto-responses, levels, the honeypot, logs. Messages are processed in memory
+            filtering scams and spam, auto-responses, levels, the honeypot, logs. Each message also adds one to
+            that server's total for the day, whatever it says. Messages are processed in memory
             and <strong>not stored by GuildForge</strong>. Message logs and ticket transcripts a server turns on
             are posted into that server's own channels, on Discord.</td>
           <td>Protection and moderation the server asked for (legitimate interest).</td>

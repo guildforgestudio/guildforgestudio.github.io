@@ -906,7 +906,7 @@
    * coming or running. Nothing is sent anywhere and nothing is stored.
    */
   (function () {
-    var START = Date.parse("2026-11-27T00:00:00+02:00");
+    var START = Date.parse("2026-11-21T00:00:00+02:00");
     var END = Date.parse("2026-12-01T00:00:00+02:00");
     var TEASE_FROM = START - 7 * 86400000;
     var bar = document.getElementById("bf-bar");
@@ -934,7 +934,7 @@
       bar.hidden = false;
       text.textContent = live
         ? " is on: one free spin in GuildForge, up to 50% off Pro or Max. Every spin wins."
-        : " starts Friday 27 November: spin the wheel in GuildForge for up to 50% off.";
+        : " starts soon: spin the wheel in GuildForge for up to 50% off.";
       time.textContent = live ? "ends in " + left(END - now) : "starts in " + left(START - now);
       cta.hidden = !live;
       if (plans) plans.hidden = !live;

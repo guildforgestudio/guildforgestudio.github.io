@@ -243,6 +243,19 @@
   .foot a { color: var(--text-2); }
   .foot-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 
+  /* ----------------------------------------------------- black friday -- */
+  /* Shown only while the offer is coming or running: the script at the bottom decides, by the visitor's clock. */
+  .bf-bar { border-bottom: 1px solid var(--ember-line); background: linear-gradient(90deg, rgba(255, 106, 31, 0.2), rgba(255, 106, 31, 0.06) 60%, transparent), var(--s1); }
+  .bf-bar .wrap { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; min-height: 52px; padding-block: 10px; font-size: 15px; text-align: center; }
+  .bf-bar b { font: 800 16px/1 var(--display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-right: 4px; }
+  .bf-wheel { display: inline-block; font-size: 20px; animation: bf-spin 6s linear infinite; }
+  .bf-time { font: 600 13px/1 var(--mono); color: var(--ember-hot); padding: 5px 9px; border-radius: 999px; border: 1px solid var(--ember-line); background: var(--ember-soft); }
+  .bf-bar .btn { padding: 8px 14px; font-size: 14px; }
+  .bf-plans { margin-top: 18px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--ember-line); background: var(--ember-soft); color: var(--text); font-size: 16px; }
+  @keyframes bf-spin { to { transform: rotate(360deg); } }
+  /* .btn and .wrap set a display, which would otherwise beat the hidden attribute. */
+  .bf-bar[hidden], .bf-bar .btn[hidden], .bf-plans[hidden] { display: none; }
+
   /* --------------------------------------------------------- reveals -- */
   .anim .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--out), transform 0.7s var(--out); }
   .anim .reveal.is-in { opacity: 1; transform: none; }
@@ -287,6 +300,14 @@
     </nav>
   </div>
 </header>
+<div class="bf-bar" id="bf-bar" hidden>
+  <div class="wrap">
+    <span class="bf-wheel" aria-hidden="true">🎡</span>
+    <span><b>Black Friday</b><span id="bf-text"></span></span>
+    <span class="bf-time" id="bf-time"></span>
+    <a class="btn" data-app id="bf-cta" href="https://guildforge-q60l.onrender.com/app/" hidden>Spin the wheel</a>
+  </div>
+</div>
 
 <div class="hero" id="top">
   <canvas id="embers" aria-hidden="true"></canvas>
@@ -306,7 +327,7 @@
       </div>
       <p class="ref-note" id="ref-note" role="status"></p>
       <div class="chips">
-        <span class="chip">v<b>0.5.2</b></span>
+        <span class="chip">v<b>0.5.3</b></span>
         <span class="chip"><b>82</b> MB</span>
         <span class="chip">Windows <b>10 / 11</b></span>
         <span class="chip"><b>Free</b> to start</span>
@@ -484,6 +505,7 @@
       <span class="eyebrow">Plans</span>
       <h2>Start free. Pay once it's running your community</h2>
       <p>Every plan gets the full builder. What changes is how many servers you run, and how much armour is switched on.</p>
+      <p class="bf-plans" id="bf-plans" hidden>🎡 <strong>Black Friday:</strong> spin the wheel in GuildForge for up to 50% off Pro or Max, monthly or yearly. Every spin wins. Until Monday 30 November, 23:59 Greek time.</p>
     </div>
     <div class="plans">
       <div class="plan reveal">
@@ -535,7 +557,7 @@
 
     <div class="cta-row reveal">
       <a class="btn" id="download-2" href="#install">Download for Windows</a>
-      <span class="btn-note">Version 0.5.2 · 82 MB</span>
+      <span class="btn-note">Version 0.5.3 · 82 MB</span>
     </div>
 
     <div class="notes reveal">
@@ -551,9 +573,9 @@
         <strong>Actions</strong> → <strong>Allow on device</strong>, then download again.
       </p>
       <p>You can check the file yourself before trusting any of that. Every download should have this exact fingerprint:</p>
-      <p><code style="word-break: break-all;">5EB3249F85EE6E16B77E2F24AC4FD2D6B7223D91BA12D9F1121A2717DC5AB65E</code></p>
+      <p><code style="word-break: break-all;">7AC0169D71D343309C3A8E7C16EF05DF5E88F0F3EABBD6CBD1EB0E7550930A21</code></p>
       <p>
-        <a href="https://www.virustotal.com/gui/file/8f6e2f597b3d852c897175624763306ec0b785c6b6d9cad106ac7120aab468bf">See it on VirusTotal</a>
+        <a href="https://www.virustotal.com/gui/file/7ac0169d71d343309c3a8e7c16ef05df5e88f0f3eabbd6cbd1eb0e7550930a21">See it on VirusTotal</a>
         — scanned by around seventy engines. If your copy's fingerprint does not match the one above, do not run it, and
         <a href="mailto:guildforge2026@gmail.com">tell me</a>.
       </p>
@@ -581,7 +603,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.5.2</span>
+    <span class="foot-mark"><img src="logo-192.png" alt=""> GuildForge Studio · version 0.5.3</span>
     <span class="foot-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -601,7 +623,7 @@
    * button that goes nowhere costs more trust than an absent one.
    */
   var DOWNLOAD_URL =
-    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.5.2/GuildForge-Studio-Setup-0.5.2.exe";
+    "https://github.com/guildforgestudio/guildforgestudio.github.io/releases/download/v0.5.3/GuildForge-Studio-Setup-0.5.3.exe";
 
   (function () {
     var buttons = [document.getElementById("download"), document.getElementById("download-2")];
@@ -877,6 +899,49 @@
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
 
     items.forEach(function (el) { observer.observe(el); });
+  })();
+  /*
+   * Black Friday. The wheel itself is in the app, and the server decides when
+   * it is open; this only tells visitors, by their own clock, that it is
+   * coming or running. Nothing is sent anywhere and nothing is stored.
+   */
+  (function () {
+    var START = Date.parse("2026-11-27T00:00:00+02:00");
+    var END = Date.parse("2026-12-01T00:00:00+02:00");
+    var TEASE_FROM = START - 7 * 86400000;
+    var bar = document.getElementById("bf-bar");
+    var text = document.getElementById("bf-text");
+    var time = document.getElementById("bf-time");
+    var cta = document.getElementById("bf-cta");
+    var plans = document.getElementById("bf-plans");
+    if (!bar || !text || !time || !cta) return;
+
+    function left(ms) {
+      var m = Math.max(0, Math.floor(ms / 60000));
+      var d = Math.floor(m / 1440);
+      var h = Math.floor((m % 1440) / 60);
+      return d > 0 ? d + "d " + h + "h" : h > 0 ? h + "h " + (m % 60) + "m" : (m % 60) + "m";
+    }
+
+    function show() {
+      var now = Date.now();
+      if (now < TEASE_FROM || now >= END) {
+        bar.hidden = true;
+        if (plans) plans.hidden = true;
+        return now < TEASE_FROM;
+      }
+      var live = now >= START;
+      bar.hidden = false;
+      text.textContent = live
+        ? " is on: one free spin in GuildForge, up to 50% off Pro or Max. Every spin wins."
+        : " starts Friday 27 November: spin the wheel in GuildForge for up to 50% off.";
+      time.textContent = live ? "ends in " + left(END - now) : "starts in " + left(START - now);
+      cta.hidden = !live;
+      if (plans) plans.hidden = !live;
+      return true;
+    }
+
+    if (show()) setInterval(show, 30000);
   })();
 </script>
 </body>
